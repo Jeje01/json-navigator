@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import Element from "./Element";
-import "./list.scss";
+import "./horizontal-list.scss";
 
 interface IList {
   hierarchy: object;
 }
 
-const List = ({
+const HorizontalList = ({
   hierarchy,
 }: IList) => {
   const [currentValue, setCurrentValue] = useState<string | object>("")
@@ -14,16 +14,16 @@ const List = ({
   const [selectedElement, setSelectedElement] = useState<string>()
 
   return (
-    <section className="list">
+    <section className="horizontal-list">
       <ul>
         {Object.keys(hierarchy).map((key) => (
           // @ts-ignore
           <Element key={key} keyName={key} value={hierarchy[key]} changeCurrentValue={changeCurrentValue} selected={key === selectedElement} selectElement={setSelectedElement} />
         ))}
       </ul>
-      {typeof currentValue === "string" ? (currentValue !== "" && <span className="text">{currentValue}</span>) : <List hierarchy={currentValue} />}
+      {typeof currentValue === "string" ? (currentValue !== "" && <span className="text">{currentValue}</span>) : <HorizontalList hierarchy={currentValue} />}
     </section>
   )
 }
 
-export default List
+export default HorizontalList;

@@ -1,7 +1,7 @@
 import data from "../json/data.json"
 import React, { useEffect, useState } from "react";
 import { handleJSON } from "../utils";
-import List from "./List";
+import HorizontalList from "./HorizontalList";
 import "./home.scss";
 
 const Home = () => {
@@ -32,7 +32,7 @@ const Home = () => {
         <input type="file" accept=".json" id="upload_json" onChange={changeHandler} />
         <p>{`${currentFileName || "기본 데이터"} 보는 중`}</p>
       </section>
-      <List key={currentFileName} hierarchy={hierarchy} />
+      <HorizontalList key={currentFileName} hierarchy={hierarchy} />
     </div>
   ) : <>Loading...</>
 }
