@@ -1,3 +1,12 @@
 .list {
-  margin: 0;
+  margin-right: 10px;
+  display: flex;
+  ul, .text {
+    border: 1px solid grey;
+  }
+  .text {
+    border-radius: 4px;
+    background-color: lightgrey;
+    padding: 8px 12px;
+  }
 }

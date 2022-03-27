@@ -11,17 +11,18 @@ const List = ({
 }: IList) => {
   const [currentValue, setCurrentValue] = useState<string | object>("")
   const changeCurrentValue = (value: string | object) => setCurrentValue(value)
+  const [selectedElement, setSelectedElement] = useState<string>()
 
   return (
-    <>
-      <ul className="list">
+    <section className="list">
+      <ul>
         {Object.keys(hierarchy).map((key) => (
           // @ts-ignore
-          <Element keyName={key} value={hierarchy[key]} changeCurrentValue={changeCurrentValue} />
+          <Element keyName={key} value={hierarchy[key]} changeCurrentValue={changeCurrentValue} selected={key === selectedElement} selectElement={setSelectedElement} />
         ))}
       </ul>
-      {typeof currentValue === "string" ? <span>{currentValue}</span> : <List hierarchy={currentValue} />}
-    </>
+      {typeof currentValue === "string" ? (currentValue !== "" && <span className="text">{currentValue}</span>) : <List hierarchy={currentValue} />}
+    </section>
   )
 }
 

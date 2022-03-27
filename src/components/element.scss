@@ -3,8 +3,10 @@
   button {
     padding: 8px 12px;
     width: 100%;
-    background-color: aliceblue;
-    border: 1px solid grey;
-    border-radius: 4px;
+    border: none;
+    background-color: white;
+    &.selected {
+      background-color: rosybrown;
+    }
   }
 }
