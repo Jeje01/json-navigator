@@ -1,7 +1,7 @@
-import data from "../json/data.json"
+import data from "../../json/data.json"
 import React, { useEffect, useState } from "react";
-import { handleJSON } from "../utils";
-import HorizontalList from "./HorizontalList";
+import { handleJSON } from "../../utils";
+import HorizontalList from "../HorizontalList/HorizontalList";
 import "./home.scss";
 
 const Home = () => {
