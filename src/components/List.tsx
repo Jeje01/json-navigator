@@ -18,7 +18,7 @@ const List = ({
       <ul>
         {Object.keys(hierarchy).map((key) => (
           // @ts-ignore
-          <Element keyName={key} value={hierarchy[key]} changeCurrentValue={changeCurrentValue} selected={key === selectedElement} selectElement={setSelectedElement} />
+          <Element key={key} keyName={key} value={hierarchy[key]} changeCurrentValue={changeCurrentValue} selected={key === selectedElement} selectElement={setSelectedElement} />
         ))}
       </ul>
       {typeof currentValue === "string" ? (currentValue !== "" && <span className="text">{currentValue}</span>) : <List hierarchy={currentValue} />}
