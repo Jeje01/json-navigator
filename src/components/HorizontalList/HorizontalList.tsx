@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import Element from "./Element";
 import "./horizontal-list.scss";
 
-interface IList {
+interface IHorizontalList {
   hierarchy: object;
 }
 
 const HorizontalList = ({
   hierarchy,
-}: IList) => {
+}: IHorizontalList) => {
   const [currentValue, setCurrentValue] = useState<string | object>("")
   const changeCurrentValue = (value: string | object) => setCurrentValue(value)
   const [selectedElement, setSelectedElement] = useState<string>()

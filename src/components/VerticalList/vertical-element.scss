@@ -1,0 +1,17 @@
+.vertical-element {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+
+  button, .value {
+    padding: 8px 12px;
+    margin-bottom: 5px;
+    border: 1px solid black;
+    border-radius: 4px;
+    text-align: left;
+    height: fit-content;
+  }
+  .value {
+    margin-left: 30px;
+  }
+}
