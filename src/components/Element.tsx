@@ -13,11 +13,12 @@ const Element = ({
   changeCurrentValue
 }: IElement) => {
   const isLeafElement = typeof value === "string"
+  const chevron = !isLeafElement ? ">" : ""
 
   return (
     <li className="element">
       <button onClick={() => changeCurrentValue(value)}>
-        {`${keyName} ${!isLeafElement ? ">" : ""}`}
+        {`${keyName} ${chevron}`}
       </button>
     </li>
   )
