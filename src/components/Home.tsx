@@ -13,8 +13,10 @@ const Home = () => {
 
   return hierarchy ? (
     <section className="home">
+    <div className="home">
+      <h1>JSON navigator</h1>
       <List hierarchy={hierarchy} />
-    </section>
+    </div>
   ) : <>Loading...</>
 }
 
