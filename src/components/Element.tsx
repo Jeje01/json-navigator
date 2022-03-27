@@ -18,13 +18,14 @@ const Element = ({
 }: IElement) => {
   const isLeafElement = typeof value === "string"
   const chevron = !isLeafElement ? " ▸" : ""
+  const onClickHandler = () => {
+    changeCurrentValue(value)
+    selectElement(keyName)
+  }
 
   return (
     <li className="element">
-      <button onClick={() => {
-        changeCurrentValue(value)
-        selectElement(keyName)
-      }} className={selected ? "selected" : ""}>
+      <button onClick={onClickHandler} className={selected ? "selected" : ""}>
         {`${keyName} ${chevron}`}
       </button>
     </li>
