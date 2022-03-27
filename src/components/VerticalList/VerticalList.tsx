@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import VerticalElement from "./VerticalElement";
 
 interface IVerticalList {
-  hierarchy: object;
+  hierarchy: any;
 }
 
 const VerticalList = ({
@@ -12,7 +12,6 @@ const VerticalList = ({
   return (
     <ul className="vertical-list">
       {Object.keys(hierarchy).map((key) => (
-        // @ts-ignore
         <VerticalElement key={key} keyName={key} value={hierarchy[key]} />
       ))}
     </ul>

@@ -3,7 +3,7 @@ import Element from "./Element";
 import "./horizontal-list.scss";
 
 interface IHorizontalList {
-  hierarchy: object;
+  hierarchy: any
 }
 
 const HorizontalList = ({
@@ -17,7 +17,6 @@ const HorizontalList = ({
     <section className="horizontal-list">
       <ul>
         {Object.keys(hierarchy).map((key) => (
-          // @ts-ignore
           <Element key={key} keyName={key} value={hierarchy[key]} changeCurrentValue={changeCurrentValue} selected={key === selectedElement} selectElement={setSelectedElement} />
         ))}
       </ul>
