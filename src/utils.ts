@@ -1,33 +1,23 @@
-const handleJSON = (data: Object) => {
+const handleJSON = (data: any) => {
   const result = {}
-  //address.geo.lat 있을 경우 lng 새로 만들지 않음
-  for (const name in data) {
-    if (name.includes(".")) {
-      const [key, ...rest] = name.split(".")
-      const restName = rest.join(".")
-      if (restName.includes(".")) {
-        const [a, b] = restName.split(".")
-        const obj1 = {}
-        const obj2 = {}
-        // @ts-ignore
-        obj2[b] = data[name]
-        // @ts-ignore
-        obj1[a] = obj2
-        // @ts-ignore
-        result[key] = obj1
-        
-      } else {
-        const obj = {}
-        // @ts-ignore
-        obj[restName] = data[name]
-        // @ts-ignore
-        result[key] = obj
-      }
+
+  const addKeyValue = (key: string, value: string, obj: any) => {
+    const isLeafElement = !key.includes(".")
+    if (isLeafElement) {
+      obj[key] = value
     } else {
-      // @ts-ignore
-      result[name] = data[name]
+      const [topLevelKey, ...childs] = key.split(".")
+      if (!obj[topLevelKey]) {
+        obj[topLevelKey] = {}
+      }
+      addKeyValue(childs.join("."), value, obj[topLevelKey])
     }
   }
+
+  for (const keyName in data) {
+    addKeyValue(keyName, data[keyName], result)
+  }
+
   return result
 }
 
